@@ -25,7 +25,7 @@ const metadata = {
 // Create the modal
 export const modal = createAppKit({
   adapters: [wagmiAdapter, solanaWeb3JsAdapter],
-  projectId,
+  projectId: projectId!,
   networks,
   metadata,
   themeMode: "light",
