@@ -1,5 +1,5 @@
 import React from "react";
-//@ts-ignore
+//@ts-expect-error
 import { AiOutlineCloseCircle, AiOutlineCheckCircle } from "react-icons/ai";
 // import "./Modal.css";
 

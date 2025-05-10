@@ -9,14 +9,14 @@ import {
 import { useAccount, useWriteContract } from "wagmi";
 import { parseUnits } from "viem";
 import { erc20Abi } from "viem";
-import { networks } from "@/config";
+// import { networks } from "@/config";
 import { useState } from "react";
 import { Modal } from "./Modal";
 
 export const ActionButtonList = ({ amount }: { amount: string }) => {
   const { disconnect } = useDisconnect();
   const { open } = useAppKit();
-  const { address: reownAddress, isConnected } = useAppKitAccount();
+  // const { address: reownAddress, isConnected } = useAppKitAccount();
   const { caipNetwork } = useAppKitNetwork();
   const [modal, setModal] = useState<null | {
     type: "success" | "error";
@@ -29,7 +29,7 @@ export const ActionButtonList = ({ amount }: { amount: string }) => {
   const BASE_USDT = "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2";
   const ARBITRUM_USDT = "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9";
 
-  const recipient = "0x72222dF7093CF9c1E9F53Ee3b380D6bc1c56B9d3"; // Replace with real recipient
+  let recipient = "0x72222dF7093CF9c1E9F53Ee3b380D6bc1c56B9d3"; // Replace with real recipient
 
   const handleSendUSDT = async () => {
     if (!address) {
