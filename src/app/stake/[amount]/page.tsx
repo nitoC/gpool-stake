@@ -4,16 +4,21 @@ import { ActionButtonList } from "@/components/ActionButtonList";
 import { ConnectButton } from "@/components/ConnectButton";
 import Image from "next/image";
 
-interface DepositPageProps {
-  params: { amount: string };
+interface PageProps {
+  params: {
+    amount: string;
+  };
 }
 
-const DepositPage = ({ params }: DepositPageProps) => {
+const DepositPage = ({ params }: PageProps) => {
   const amount = params.amount;
 
-  // Validate amount — `parseInt` returns NaN for invalid input, which is a number
-  if (isNaN(parseInt(amount))) {
-    return <h1>Oops! Something went wrong</h1>;
+  // Convert to number and validate
+  const parsedAmount = parseFloat(amount);
+  const isValid = !isNaN(parsedAmount) && parsedAmount > 0;
+
+  if (!isValid) {
+    return <h1>Oops! Invalid amount specified.</h1>;
   }
 
   return (
@@ -25,8 +30,8 @@ const DepositPage = ({ params }: DepositPageProps) => {
         height={150}
         priority
       />
-      <h1>Stake {amount}</h1>
-      <p>Amount: {amount}</p>
+      <h1>Stake {parsedAmount}</h1>
+      <p>Amount: {parsedAmount}</p>
       <ConnectButton />
       <ActionButtonList amount={amount} />
     </div>
