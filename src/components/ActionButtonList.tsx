@@ -76,7 +76,11 @@ export const ActionButtonList = ({ amount }: { amount: string }) => {
       console.log("Transaction sent! Hash:", txHash);
     } catch (err) {
       console.error("USDT transfer failed:", err);
-      setModal({ type: "error", message: err.message || "Transfer failed" });
+
+  const message =
+    err instanceof Error ? err.message : "Transfer failed";
+
+  setModal({ type: "error", message });
     }
   };
 
