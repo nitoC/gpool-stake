@@ -7,7 +7,11 @@ import Image from "next/image";
 
 export default function DepositPage() {
   const params = useParams();
-  const amount = params.amount;
+  const amount = params.amount as string | undefined;
+
+  if (!amount) {
+    return <h1>Oops! Amount is missing.</h1>;
+  }
 
   const parsedAmount = parseFloat(amount);
   const isValid = !isNaN(parsedAmount) && parsedAmount > 0;
