@@ -1,19 +1,14 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { ActionButtonList } from "@/components/ActionButtonList";
 import { ConnectButton } from "@/components/ConnectButton";
 import Image from "next/image";
 
-interface PageProps {
-  params: {
-    amount: string;
-  };
-}
-
-const DepositPage = ({ params }: PageProps) => {
+export default function DepositPage() {
+  const params = useParams();
   const amount = params.amount;
 
-  // Convert to number and validate
   const parsedAmount = parseFloat(amount);
   const isValid = !isNaN(parsedAmount) && parsedAmount > 0;
 
@@ -36,6 +31,4 @@ const DepositPage = ({ params }: PageProps) => {
       <ActionButtonList amount={amount} />
     </div>
   );
-};
-
-export default DepositPage;
+}
