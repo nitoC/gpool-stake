@@ -1,5 +1,5 @@
 import React from "react";
-//@ts-expect-error: third-party lib missing types
+
 import { AiOutlineCloseCircle, AiOutlineCheckCircle } from "react-icons/ai";
 // import "./Modal.css";
 
