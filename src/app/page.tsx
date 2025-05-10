@@ -1,6 +1,6 @@
 import { ConnectButton } from "@/components/ConnectButton";
 // import { InfoList } from "@/components/InfoList";
-import { ActionButtonList } from "@/components/ActionButtonList";
+// import { ActionButtonList } from "@/components/ActionButtonList";
 import Image from "next/image";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       />
 
       <ConnectButton />
-      <ActionButtonList />
+      {/* <ActionButtonList /> */}
       <div className="advice">
         <p>
           <a
